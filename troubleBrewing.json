@@ -1,0 +1,32 @@
+{
+    "townsfolk":[
+        "washerwoman",
+        "librarian",
+        "investigator",
+        "chef",
+        "empath",
+        "fortune_teller",
+        "undertaker",
+        "monk",
+        "ravenkeeper",
+        "virgin",
+        "slayer",
+        "soldier",
+        "mayor"
+        ],
+    "outsiders":[
+        "butler",
+        "saint",
+        "recluse",
+        "drunk"
+    ],
+    "minions":[
+        "poisoner",
+        "spy",
+        "baron",
+        "scarlet_woman"
+    ],
+    "demons":[
+        "imp"
+    ]
+}

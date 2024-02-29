@@ -1,0 +1,38 @@
+img{
+    
+    width: 50px;
+    height: 50px;
+    
+}
+
+.roles{
+
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    flex-wrap:wrap;
+
+}
+
+.role{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+}
+.role-button{
+    border-radius: 50%;
+    border: none;
+
+}
+
+.selected-role-button{
+    border: yellow solid 1px;
+    
+}
+
+.player{
+    width: 100px;
+}
