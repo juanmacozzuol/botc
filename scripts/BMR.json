@@ -1,0 +1,35 @@
+{
+    "townsfolk":[
+        "grandmother",
+        "sailor",
+        "chambermaid",
+        "exorcist",
+        "innkeeper",
+        "gambler",
+        "gossip",
+        "courtier",
+        "professor",
+        "minstrel",
+        "tealady",
+        "pacifist",
+        "fool"
+        ],
+    "outsiders":[
+        "goon",
+        "lunatic",
+        "tinker",
+        "moonchild"
+    ],
+    "minions":[
+        "godfather",
+        "devilsadvocate",
+        "assassin",
+        "mastermind"
+    ],
+    "demons":[
+        "zombuul",
+        "pukka",
+        "shabaloth",
+        "po"
+    ]
+}

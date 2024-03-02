@@ -1,0 +1,35 @@
+{
+    "townsfolk":[
+        "clockmaker",
+        "dreamer",
+        "snakecharmer",
+        "mathematician",
+        "flowergirl",
+        "towncrier",
+        "oracle",
+        "savant",
+        "seamstress",
+        "philosopher",
+        "artist",
+        "juggler",
+        "sage"
+        ],
+    "outsiders":[
+        "mutant",
+        "sweetheart",
+        "barber",
+        "klutz"
+    ],
+    "minions":[
+        "eviltwin",
+        "witch",
+        "cerenovus",
+        "pithag"
+    ],
+    "demons":[
+        "fanggu",
+        "vigormortis",
+        "nodashii",
+        "vortox"
+    ]
+}

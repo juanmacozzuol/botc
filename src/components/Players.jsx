@@ -6,3 +6,5 @@ const Players = () =>{
         </div>
     )
 }
+
+export default Players
