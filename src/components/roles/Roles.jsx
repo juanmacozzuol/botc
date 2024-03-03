@@ -6,10 +6,15 @@ import { useState, useEffect } from 'react'
 
 import './roles.css'
 
-const Roles = ({selectedScript, groups}) =>{
+const Roles = ({selectedScript, groups, setGroups}) =>{
     const [data, setData] = useState(TB)
     const [townfolks, setTownsfolk] =  useState(0)
-
+    const [outsiders, setOutsiders] = useState(0)
+    const [minions, setMinions] = useState(0)
+    const [demons, setDemons] = useState(0)
+    const [fortuneTeller, setFortuneTeller] = useState(false)
+    const [drunk, setDrunk] = useState(false)
+    const [baron, setBaron] = useState(false)
     useEffect(()=>{
 
         switch(selectedScript){
@@ -23,23 +28,91 @@ const Roles = ({selectedScript, groups}) =>{
                 setData(BMR)
                 break;
         }
-     
+        setTownsfolk(0)
+        setOutsiders(0)
+        setMinions(0)
+        setDemons(0)
+
+        
 
     },[data,selectedScript])
 
     const toggle = (e)=>{
-        console.log(e.currentTarget.classList   )
-        if(0 <= townfolks && townfolks< groups["TOWNFOLKS_CAP"] ){
-            if( !e.currentTarget.classList.contains("selected-role-button")){
-                e.currentTarget.classList.toggle('selected-role-button')
-                setTownsfolk(townfolks+1)
-            }
-            else{
-                e.currentTarget.classList.toggle('selected-role-button')
-                setTownsfolk(townfolks-1)
-            }      
+        console.log(e.currentTarget.value)
+        switch(e.currentTarget.name){
+            case "townfolks":
+                if(e.currentTarget.value == "fortune_teller") setFortuneTeller(!fortuneTeller)
+                
+                if( e.currentTarget.classList.contains("selected-role-button")){
+            
+                    e.currentTarget.classList.toggle('selected-role-button')
+                    setTownsfolk(townfolks-1)
+                    
+                }    
+                else{
+                    if(townfolks < groups["TOWNFOLKS_CAP"]){
+                        e.currentTarget.classList.toggle('selected-role-button')
+                        setTownsfolk(townfolks+1)
+                    }
+                }
+                break;
+            case "outsiders":
+                if(e.currentTarget.value == "drunk") setDrunk(!drunk)
+                if( e.currentTarget.classList.contains("selected-role-button")){
+            
+                    e.currentTarget.classList.toggle('selected-role-button')
+                    setOutsiders(outsiders-1)
+                }    
+                else{
+                    if(outsiders < groups["OUTSIDERS_CAP"]){
+                        e.currentTarget.classList.toggle('selected-role-button')
+                        setOutsiders(outsiders+1)
+                    }
+                }
+                break;
+                case "minions":
+                    if(e.currentTarget.value == 'baron'){
+                        
+                        if( !e.currentTarget.classList.contains("selected-role-button")){
+                            setGroups({...groups, TOWNFOLKS_CAP: groups.TOWNFOLKS_CAP-2, OUTSIDERS_CAP: groups.OUTSIDERS_CAP+2})
+                        }
+                        else{
+                            setGroups({...groups, TOWNFOLKS_CAP: groups.TOWNFOLKS_CAP+2, OUTSIDERS_CAP: groups.OUTSIDERS_CAP-2})
+                        }
+
+                    }
+
+                    if( e.currentTarget.classList.contains("selected-role-button")){
+                        
+                        e.currentTarget.classList.toggle('selected-role-button')
+                        setMinions(minions-1)
+                    }    
+                    else{
+                        if(minions < groups["MINIONS_CAP"]){
+                            e.currentTarget.classList.toggle('selected-role-button')
+                            setMinions(minions+1)
+                        }
+                    }
+                    break;
+                case "demons":
+                    if( e.currentTarget.classList.contains("selected-role-button")){
+                
+                        e.currentTarget.classList.toggle('selected-role-button')
+                        setDemons(demons-1)
+                    }    
+                    else{
+                        if(demons < groups["DEMONS_CAP"]){
+                            e.currentTarget.classList.toggle('selected-role-button')
+                            setDemons(demons+1)
+                        }
+                    }
+                    break;
+
         }
-        console.log(townfolks)
+        
+     
+        
+        console.log(e.currentTarget.name)
         
     }
     const capitalizeName = (role) =>{
@@ -61,10 +134,11 @@ const Roles = ({selectedScript, groups}) =>{
                     return(
                     <div key={`${role}`} className='role'>
                         <p style={{color:"white"}}>{capitalizeName(role)}</p>
-                        <button className='role-button' name="townsfolks" onClick={toggle} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
+                        <button className='role-button' name="townfolks" value={ role} onClick={toggle} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
                         
                             <input className='player' placeholder='player'/>
-                        
+                            {role == "fortune_teller" && fortuneTeller && <input  className="player" placeholder='red hearing'/>}
+                            
                     </div>
                     )
                 })
@@ -76,10 +150,10 @@ const Roles = ({selectedScript, groups}) =>{
                     return(
                     <div key={`${role}`} className='role'>
                         <p style={{color:"white"}}>{capitalizeName(role)}</p>
-                        <button className='role-button' onClick={toggle} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
+                        <button className='role-button' name="outsiders" onClick={toggle} value={role} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
                         
                             <input className='player' placeholder='player'/>
-                        
+                            {role == "drunk" && drunk && <input className='player' placeholder='supposed role'/>}
                     </div>
                     )
                 })
@@ -89,7 +163,7 @@ const Roles = ({selectedScript, groups}) =>{
                     return(
                     <div key={`${role}`} className='role'>
                         <p style={{color:"white"}}>{capitalizeName(role)}</p>
-                        <button className='role-button' onClick={toggle} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
+                        <button className='role-button' name="minions" onClick={toggle} value={ role} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
                         
                             <input className='player' placeholder='player'/>
                         
@@ -102,7 +176,7 @@ const Roles = ({selectedScript, groups}) =>{
                     return(
                     <div key={`${role}`} className='role'>
                         <p style={{color:"white"}}>{capitalizeName(role)}</p>
-                        <button className='role-button' onClick={toggle} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
+                        <button className='role-button' name="demons" onClick={toggle} value={ role} ><img src={`/${selectedScript}/Icon_${role}.png `}></img></button>
                         
                             <input className='player' placeholder='player'/>
                         

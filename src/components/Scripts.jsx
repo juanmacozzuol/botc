@@ -35,7 +35,7 @@ const Scripts = ({scripts}) =>{
 
             </select> }   
             
-            {currentScript !="Select script" &&<Roles selectedScript ={currentScript} groups={groups}/>}
+            {currentScript !="Select script" &&<Roles selectedScript ={currentScript} groups={groups} setGroups={setGroups}/>}
         </div>
     )
     

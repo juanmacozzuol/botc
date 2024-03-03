@@ -4,7 +4,7 @@ export const groupDistribution = (playercount) =>{
         TOWNFOLKS_CAP:0,
         OUTSIDERS_CAP:0,
         MINIONS_CAP:0,
-        DEMONS:1
+        DEMONS_CAP:1
     }
     switch(playercount){
         case "5":
