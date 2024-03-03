@@ -10,7 +10,7 @@
         "courtier",
         "professor",
         "minstrel",
-        "tealady",
+        "tea_lady",
         "pacifist",
         "fool"
         ],
@@ -22,7 +22,7 @@
     ],
     "minions":[
         "godfather",
-        "devilsadvocate",
+        "devil's_advocate",
         "assassin",
         "mastermind"
     ],

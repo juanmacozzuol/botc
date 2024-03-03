@@ -2,10 +2,10 @@
     "townsfolk":[
         "clockmaker",
         "dreamer",
-        "snakecharmer",
+        "snake_charmer",
         "mathematician",
-        "flowergirl",
-        "towncrier",
+        "flower_girl",
+        "town_crier",
         "oracle",
         "savant",
         "seamstress",
@@ -21,13 +21,13 @@
         "klutz"
     ],
     "minions":[
-        "eviltwin",
+        "evil_twin",
         "witch",
         "cerenovus",
-        "pithag"
+        "pit_hag"
     ],
     "demons":[
-        "fanggu",
+        "fang_gu",
         "vigormortis",
         "nodashii",
         "vortox"
