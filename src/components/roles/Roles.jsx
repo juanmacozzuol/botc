@@ -6,7 +6,14 @@ import { useState, useEffect } from 'react'
 
 import './roles.css'
 
-const Roles = ({selectedScript, groups, setGroups}) =>{
+// for (const property in TB) {
+//     for(let i = 0 ; i< TB[property].length; i++){
+//       let obj = {grupo: property, role:TB[property][i]}
+//       roles.push(obj)
+//     }
+//   }
+
+const Roles = ({selectedScript, groups, setGroups, setBaron, baron}) =>{
     const [data, setData] = useState(TB)
     const [townfolks, setTownsfolk] =  useState(0)
     const [outsiders, setOutsiders] = useState(0)
@@ -14,7 +21,7 @@ const Roles = ({selectedScript, groups, setGroups}) =>{
     const [demons, setDemons] = useState(0)
     const [fortuneTeller, setFortuneTeller] = useState(false)
     const [drunk, setDrunk] = useState(false)
-    const [baron, setBaron] = useState(false)
+    console.log("TB",TB)
     useEffect(()=>{
 
         switch(selectedScript){
@@ -73,13 +80,8 @@ const Roles = ({selectedScript, groups, setGroups}) =>{
                 case "minions":
                     if(e.currentTarget.value == 'baron'){
                         
-                        if( !e.currentTarget.classList.contains("selected-role-button")){
-                            setGroups({...groups, TOWNFOLKS_CAP: groups.TOWNFOLKS_CAP-2, OUTSIDERS_CAP: groups.OUTSIDERS_CAP+2})
-                        }
-                        else{
-                            setGroups({...groups, TOWNFOLKS_CAP: groups.TOWNFOLKS_CAP+2, OUTSIDERS_CAP: groups.OUTSIDERS_CAP-2})
-                        }
-
+              
+                        setBaron(!baron)
                     }
 
                     if( e.currentTarget.classList.contains("selected-role-button")){
